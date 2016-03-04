@@ -2,7 +2,7 @@ package telerik;
 
 import java.util.Scanner;
 
-
+//comment
 
 public class Game {
 	public static void main(String[] args){
