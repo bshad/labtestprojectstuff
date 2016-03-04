@@ -2,14 +2,17 @@ package telerik;
 
 import java.util.LinkedList;
 
-
 public class HighScoreBoard {
 	LinkedList list;
 	public final int boardSize = 5;
 	public HighScoreBoard(){
 		list = new LinkedList();
 	}
-	
+	/*
+	 * Checks whether the player has enough points to get onto score-board and adds him if he does. 
+	 * Players are kept in sorted order.
+	 * modifies global variable list.
+	 */
 	public boolean addPlayerToChart(Player player){
 		if(list.size()==0){
 			list.addFirst(player);
@@ -25,26 +28,20 @@ public class HighScoreBoard {
 			while(index<list.size()){
 				pl = (Player) list.get(index);
 				if(player.movesCount<=pl.movesCount){
-					
-					
-					{
-						list.add(index,player);
-					}
-				return true;
+					list.add(index,player);
+					return true;
 				}
 				index++;
 			}
 		}
-		if((list.size()==boardSize)) {
-			if((player.movesCount<pl.movesCount)){
+		if(list.size()==boardSize) {
+			if(player.movesCount<pl.movesCount){
 				list.remove(list.size() - 1);
 				int index = 0;
 				while (index < list.size()) {
 					pl = (Player) list.get(index);
 					if (player.movesCount <= pl.movesCount) {
 						list.add(index, player);
-
-
 						return true;
 					}
 					index++;
